@@ -5,7 +5,7 @@ import TabButton from "./components/TabButton";
 import { useState } from "react";
 import { EXAMPLES } from "./data";
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("please press button");
+  const [selectedTopic, setSelectedTopic] = useState("components");
   let tabContent = "Please press button";
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
@@ -42,9 +42,11 @@ function App() {
           </menu>
           {/* {selectedTopic} */}
           <div>
-            <h3></h3>
-            <p></p>
-            <code></code>
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>{EXAMPLES[selectedTopic].code}</code>
+            </pre>
           </div>
         </section>
       </main>
