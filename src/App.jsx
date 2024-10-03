@@ -23,7 +23,7 @@ function App() {
           <code>{EXAMPLES[selectedTopic].code}</code>
         </pre>
       </div>
-    );~
+    );
   }
   return (
     <div>
@@ -45,12 +45,30 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect("components")}>
+            <TabButton
+              isSelect={selectedTopic === "components"}
+              onSelect={() => handleSelect("components")}
+            >
               Componets
             </TabButton>
-            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
+            <TabButton
+              isSelect={selectedTopic === "jsx"}
+              onSelect={() => handleSelect("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelect={selectedTopic === "props"}
+              onSelect={() => handleSelect("props")}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelect={selectedTopic == "state"}
+              onSelect={() => handleSelect("state")}
+            >
+              State
+            </TabButton>
           </menu>
           {/* {!selectedTopic && <p>Please select topic</p>}
           {selectedTopic && (
