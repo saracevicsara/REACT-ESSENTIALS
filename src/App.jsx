@@ -2,7 +2,7 @@ import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept";
 import { CORE_CONCEPTS } from "./data";
 import TabButton from "./components/TabButton";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { EXAMPLES } from "./data";
 function App() {
   const [selectedTopic, setSelectedTopic] = useState(null);
@@ -26,7 +26,7 @@ function App() {
     );
   }
   return (
-    <div>
+    <Fragment>
       <Header />
       <main>
         <section id="core-concepts">
@@ -67,7 +67,7 @@ function App() {
               Props
             </TabButton>
             <TabButton
-              isSelect={selectedTopic == "state"}
+              isSelect={selectedTopic === "state"}
               onSelect={() => handleSelect("state")}
             >
               State
@@ -86,7 +86,7 @@ function App() {
           {tabContent}
         </section>
       </main>
-    </div>
+    </Fragment>
   );
 }
 
