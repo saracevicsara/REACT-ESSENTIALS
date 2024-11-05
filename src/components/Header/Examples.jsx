@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TabButton from "../TabButton";
 import { EXAMPLES } from "../../data";
 import Section from "../Section";
+import Tabs from "../Tabs";
 
 export default function Examples() {
   const [selectedTopic, setSelectedTopic] = useState(null);
@@ -26,32 +27,39 @@ export default function Examples() {
   }
   return (
     <Section title="Examples" id="examples">
-      <menu>
-        <TabButton
-          isSelect={selectedTopic === "components"}
-          onClick={() => handleSelect("components")}
-        >
-          Componets
-        </TabButton>
-        <TabButton
-          isSelect={selectedTopic === "jsx"}
-          onClick={() => handleSelect("jsx")}
-        >
-          JSX
-        </TabButton>
-        <TabButton
-          isSelect={selectedTopic === "props"}
-          onClick={() => handleSelect("props")}
-        >
-          Props
-        </TabButton>
-        <TabButton
-          isSelect={selectedTopic === "state"}
-          onClick={() => handleSelect("state")}
-        >
-          State
-        </TabButton>
-      </menu>
+      <Tabs
+        buttons={
+          <>
+            <TabButton
+              isSelect={selectedTopic === "components"}
+              onClick={() => handleSelect("components")}
+            >
+              Componets
+            </TabButton>
+            <TabButton
+              isSelect={selectedTopic === "jsx"}
+              onClick={() => handleSelect("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelect={selectedTopic === "props"}
+              onClick={() => handleSelect("props")}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelect={selectedTopic === "state"}
+              onClick={() => handleSelect("state")}
+            >
+              State
+            </TabButton>
+          </>
+        }
+      >
+        {tabContent}
+      </Tabs>
+
       {/* {!selectedTopic && <p>Please select topic</p>}
         {selectedTopic && (
           <div id="tab-content">
@@ -62,7 +70,6 @@ export default function Examples() {
             </pre>
           </div>
         )} */}
-      {tabContent}
     </Section>
   );
 }
